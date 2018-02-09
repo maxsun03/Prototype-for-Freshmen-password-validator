@@ -10,20 +10,20 @@ public class Validator extends AppCompatActivity {
         char sc[]=new char[12];
         for(int i=0; i<p.length(); i++)
             sc[i]=p.charAt(i);
-            int success=0;
+        int success=0;
         if(p.length()>=8)
             success++;
         if(p.equalsIgnoreCase("password"))
             success++;
         if(p.length()<13)
             success++;
-        for(int i=0; i<13; i++) {
+        for(int i=0; i<12; i++) {
             if (Character.isDigit(sc[i])) {
                 success++;
                 break;
             }
         }
-        for(int j=0; j<13; j++) {
+        for(int j=0; j<12; j++) {
             if (Character.isUpperCase(sc[j])) {
                 success++;
                 break;
