@@ -18,7 +18,7 @@ public class Validator extends AppCompatActivity {
         int success=0;
         if(p.length()>=8)
             success++;
-        if(p.equalsIgnoreCase("password"))
+        if(!p.equalsIgnoreCase("password"))
             success++;
         if(p.length()<13)
             success++;
@@ -54,14 +54,17 @@ public class Validator extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String message1="strong";
-                String message2="not strong";
+                String message1="This is a strong password.";
+                String message2="This is not a strong enough password.";
+                String message3="This is a weak password.";
                 String input = editText.getText().toString();
                 int respond=Validator(input);
                 if(respond==5)
                     textView.setText(message1);
-                else
+                else if(respond==3 || respond==4)
                     textView.setText(message2);
+                else
+                    textView.setText(message3);
 
             }
         });
